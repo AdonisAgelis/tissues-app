@@ -1,6 +1,7 @@
 type User = {
   id: number;
   name: string;
+  email: string;
 };
 
 export default async function Users() {
@@ -13,12 +14,22 @@ export default async function Users() {
   return (
     <>
       <h1>Users</h1>
-      <p>{new Date().toLocaleTimeString()}</p>
-      <ul>
-        {users.map(({ id, name }) => (
-          <li key={id}>{name}</li>
-        ))}
-      </ul>
+      <table className="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(({ id, name, email }) => (
+            <tr key={id}>
+              <td>{name}</td>
+              <td>{email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }
