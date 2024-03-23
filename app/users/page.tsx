@@ -1,10 +1,15 @@
 import UserTable from "./UserTable";
 
-export default async function Users() {
+type UserParams = {
+  searchParams: { sortOrder: string };
+};
+
+export default async function Users({ searchParams }: UserParams) {
+  console.log({ searchParams });
   return (
     <>
       <h1>Users</h1>
-      <UserTable />;
+      <UserTable searchParams={searchParams} />
     </>
   );
 }
