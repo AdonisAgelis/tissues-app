@@ -5,7 +5,6 @@ type UserParams = {
 };
 
 export default async function Users({ searchParams }: UserParams) {
-  console.log({ searchParams });
   return (
     <>
       <h1>Users</h1>
