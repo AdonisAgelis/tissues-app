@@ -1,5 +1,6 @@
 import Link from "next/link";
 import UserTable from "./UserTable";
+import { Suspense } from "react";
 
 type UserParams = {
   searchParams: { sortOrder: string };
@@ -12,7 +13,9 @@ export default async function Users({ searchParams }: UserParams) {
       <Link href="/users/new" className="btn">
         New User
       </Link>
-      <UserTable searchParams={searchParams} />
+      <Suspense fallback={<p>Loading...</p>}>
+        <UserTable searchParams={searchParams} />
+      </Suspense>
     </>
   );
 }
